@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap');
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100dvh;
+  background: #050816;
+  overflow-x: hidden;
+}
+
+body {
+  color: white;
+  font-family: "Alexandria", "Inter", sans-serif;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+html {
+  scroll-behavior: smooth;
+}
