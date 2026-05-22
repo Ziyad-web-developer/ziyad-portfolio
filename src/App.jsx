@@ -186,8 +186,8 @@ function App() {
   // -----------------------------
   const t = {
     en: {
-      name: "ZIAD",
-      title: "Hi, I'm Ziad",
+      name: "ZIYAD",
+      title: "Hi, I'm Ziyad",
       role: "Information Technology | Cybersecurity",
       desc: "Recent Information Technology graduate specializing in Information Security, passionate about cybersecurity, secure systems, and building modern digital experiences with real-world impact.",
       about: "About Me",
@@ -257,17 +257,21 @@ function App() {
   const aboutCards = [
     {
       icon: <GraduationCap size={42} strokeWidth={2.2} />,
-      
-      title: "Education",
-  
+    
+      title: isAr ? "التعليم" : "Education",
+    
       content: (
         <>
           <p className="text-mobile" style={styles.aboutText}>
-            Bachelor’s Degree in Information Technology - Information Security Track
+            {isAr
+              ? "بكالوريوس تقنية المعلومات - مسار أمن المعلومات"
+              : "Bachelor’s Degree in Information Technology - Information Security Track"}
           </p>
-  
+    
           <p style={styles.aboutSubText}>
-            Jazan University | 2022 - 2026
+            {isAr
+              ? "جامعة جازان | 2022 - 2026"
+              : "Jazan University | 2022 - 2026"}
           </p>
         </>
       ),
@@ -517,7 +521,7 @@ function App() {
     <Globe size={18} />
     
     <span style={styles.langText}>
-      {isAr ? "E" : "ع"}
+      {isAr ? "EN" : "AR"}
     </span>
   </div>
 </button>
@@ -559,7 +563,10 @@ function App() {
             {t.desc}
           </p>
 
-          <div style={styles.buttons}>
+          <div
+  className="contact-buttons-mobile"
+  style={styles.contactButtons}
+>
           <motion.a
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.96 }}
@@ -574,11 +581,12 @@ function App() {
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.96 }}
   href="/cv.pdf"
-  download
+  download="Ziyad-Alfaifi-CV.pdf"
   style={styles.secondary}
 >
   {isAr ? "تحميل السيرة الذاتية" : "Download CV"}
 </motion.a>
+
 <motion.a
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.96 }}
@@ -1045,13 +1053,6 @@ style={{
 </p>
 
     <div style={styles.contactActions}>
-    <a
-  href="mailto:aziad925@gmail.com"
-  style={styles.contactAction}
-  className="contact-hover"
->
-  Email
-</a>
 
       <a
   href="https://www.linkedin.com/in/ziyad-hadi-alfaifi-391584337?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
@@ -1061,6 +1062,15 @@ style={{
   className="contact-hover">
   LinkedIn
 </a>
+
+    <a
+  href="mailto:aziad925@gmail.com"
+  style={styles.contactAction}
+  className="contact-hover"
+>
+  Email
+</a>
+
       <a
     href="/cv.pdf"
     target="_blank"
@@ -1073,7 +1083,7 @@ style={{
 
   <a
     href="/cv.pdf"
-    download
+    download="Ziyad-Alfaifi-CV.pdf"
     style={styles.contactActionPrimary}
     className="contact-hover"
         >
@@ -1082,6 +1092,8 @@ style={{
     </div>
 
     <div style={styles.contactInfoGrid}>
+
+      
   <a
     href="mailto:aziad925@gmail.com"
     style={styles.contactInfoCard}
@@ -1131,14 +1143,17 @@ style={{
   <p style={styles.footerText}>
     {isAr
       ? "جميع الحقوق محفوظة لدى زياد الفيفي — ٢٠٢٦"
-      : "All Rights Reserved by Ziad Alfaifi — 2026"}
+      : "All Rights Reserved by Ziyad Alfaifi — 2026"}
   </p>
 </footer>
       {/* ============================= Internal CSS Animations + Responsive ============================== */}
       <style>{`
-        html {
-          scroll-behavior: smooth;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+.desktop-fix[dir="rtl"],
+.desktop-fix[dir="rtl"] *:not(svg):not(path) {
+  font-family: 'Tajawal', sans-serif !important;
+}
 
         .premium-card {
           position: relative;
@@ -1268,8 +1283,8 @@ style={{
           }
         }
 
-        @media (max-width: 900px) {
-          html,
+        @media (max-width: 768px) {
+         html,
           body,
           #root {
             overflow-x: hidden !important;
@@ -1305,9 +1320,10 @@ style={{
           }
         
           .hero-title {
-            font-size: 42px !important;
-            line-height: 1.08 !important;
+            font-size: 30px !important;
+            line-height: 1.15 !important;
           }
+          
         
           .hero-desc {
             font-size: 16px !important;
@@ -1353,6 +1369,25 @@ style={{
             line-height: 1.7 !important;
           }
         
+
+          .contact-buttons-mobile {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 8px !important;
+            flex-wrap: wrap !important;
+            width: 100% !important;
+          }
+          
+          .contact-buttons-mobile a {
+            width: auto !important;
+            min-width: 108px !important;
+            padding: 9px 16px !important;
+            font-size: 14.5px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            line-height: 1.3 !important;
+          }
           .hero-image-card {
             padding: 18px !important;
             border-radius: 28px !important;
@@ -1371,6 +1406,7 @@ style={{
             width: 260px !important;
             height: 260px !important;
           }
+
         }
       `}</style>
       <a
@@ -1412,7 +1448,7 @@ const styles = {
     background: "#020617",
     color: "white",
     fontFamily: "'Finlandica', sans-serif",
-        overflowX: "hidden",
+    overflowX: "hidden",
     position: "relative",
   },
 
@@ -1593,10 +1629,11 @@ const styles = {
 
   title: {
     fontFamily: "'Sora', sans-serif",
-    fontSize: "clamp(44px, 6vw, 72px)",
-        lineHeight: 1,
+    fontSize: "clamp(34px, 4.6vw, 56px)",
+    lineHeight: 1.05,
     margin: 0,
     fontWeight: 900,
+    letterSpacing: "-1px",
     background: "linear-gradient(90deg,#38bdf8,#8b5cf6,#ffffff)",
     WebkitBackgroundClip: "text",
     color: "transparent",
@@ -1617,23 +1654,33 @@ const styles = {
     flexWrap: "wrap",
   },
 
+  contactButtons: {
+    display: "flex",
+    gap: 14,
+    marginTop: 34,
+    flexWrap: "wrap",
+    alignItems: "center",
+  },
+
   primary: {
-    padding: "14px 26px",
+    padding: "12px 22px",
     borderRadius: 999,
     background: "#38bdf8",
     color: "#020617",
     textDecoration: "none",
-    fontWeight: 900,
+    fontWeight: 800,
+    fontSize: 15,
   },
 
   secondary: {
-    padding: "14px 26px",
+    padding: "12px 22px",
     borderRadius: 999,
     background: "rgba(255,255,255,0.1)",
     color: "white",
     border: "1px solid rgba(255,255,255,0.14)",
     textDecoration: "none",
-    fontWeight: 900,
+    fontWeight: 700,
+    fontSize: 15,
   },
 
   heroCard: {
@@ -1941,6 +1988,7 @@ const styles = {
     fontSize: 13,
     fontWeight: 800,
     letterSpacing: 1,
+    
   },
   contactSection: {
     padding: "90px 5% 130px",
