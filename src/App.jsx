@@ -608,9 +608,9 @@ function App() {
     borderRadius: "50%",
     border: "3px solid transparent",
     background:
-      "linear-gradient(#020617,#020617) padding-box, linear-gradient(135deg, #38bdf8, #a855f7, #22d3ee) border-box",
+      "linear-gradient(#020617,#020617) padding-box, linear-gradient(135deg, #5cc8ff, #C8A95B, #9b6bff) border-box",
     boxShadow:
-      "0 0 35px rgba(56,189,248,0.35), 0 0 70px rgba(168,85,247,0.22)",
+      "0 0 35px rgba(200,169,91,0.22), 0 0 70px rgba(200,169,91,0.14)",
   }}
   initial={{ x: isAr ? -55 : 55, opacity: 0, scale: 0.92 }}
   animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -645,7 +645,7 @@ function App() {
               whileHover={{
                 y: -6,
                 boxShadow: "0 0 35px rgba(56,189,248,0.20)",
-                borderColor: "rgba(56,189,248,0.35)",
+                borderColor: "rgba(200,169,91,0.22)",
               }}
             >
               <div style={styles.aboutBigIcon}>{card.icon}</div>
@@ -685,7 +685,7 @@ function App() {
               whileHover={{
                 y: -6,
                 boxShadow: "0 0 35px rgba(56,189,248,0.20)",
-                borderColor: "rgba(56,189,248,0.35)",
+                borderColor: "rgba(200,169,91,0.22)",
               }}
             >
              <h3 className="project-title-mobile" style={styles.skillsCardTitle}>
@@ -738,7 +738,7 @@ function App() {
               whileHover={{
                 y: -6,
                 boxShadow: "0 0 35px rgba(56,189,248,0.20)",
-                borderColor: "rgba(56,189,248,0.35)",
+                borderColor: "rgba(200,169,91,0.22)",
               }}
             >
              <div style={styles.timelineHeader}>
@@ -796,7 +796,7 @@ function App() {
               style={styles.certificateCard}
               whileHover={{
                 y: -4,
-                borderColor: "rgba(56,189,248,0.35)",
+                borderColor: "rgba(200,169,91,0.22)",
                 boxShadow: "0 0 28px rgba(56,189,248,0.13)",
               }}
               transition={{ duration: 0.18 }}
@@ -808,7 +808,7 @@ function App() {
                 </div>
 
                 <div style={styles.certificateIconBox}>
-                  <Award size={24} color="#38bdf8" />
+                  <Award size={24} color="#5cc8ff" />
                 </div>
               </div>
             </motion.div>
@@ -868,7 +868,7 @@ function App() {
           }}
           whileHover={{
             y: -6,
-            borderColor: "rgba(56,189,248,0.35)",
+            borderColor: "rgba(200,169,91,0.22)",
             boxShadow: "0 0 35px rgba(56,189,248,0.16)",
           }}
           transition={{ duration: 0.18 }}
@@ -958,7 +958,7 @@ style={{
         style={styles.projectModernCard}
         whileHover={{
           y: -6,
-          borderColor: "rgba(56,189,248,0.35)",
+          borderColor: "rgba(200,169,91,0.22)",
           boxShadow: "0 0 35px rgba(56,189,248,0.16)",
         }}
         transition={{ duration: 0.18 }}
@@ -1030,7 +1030,7 @@ style={{
     className="project-card-mobile premium-card"
     style={styles.contactBox}
     whileHover={{
-      borderColor: "rgba(56,189,248,0.35)",
+      borderColor: "rgba(200,169,91,0.22)",
       boxShadow: "0 0 35px rgba(56,189,248,0.16)",
     }}
     transition={{ duration: 0.18 }}
@@ -1207,7 +1207,7 @@ style={{
           bottom: -8px;
           height: 2px;
           border-radius: 999px;
-          background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+          background: linear-gradient(90deg, #5cc8ff, #8b5cf6);
           transform: scaleX(0);
           transform-origin: center;
           transition: transform 0.25s ease;
@@ -1259,7 +1259,7 @@ style={{
         .contact-hover:hover {
           transform: translateY(-4px);
           box-shadow:
-            0 0 22px rgba(56,189,248,0.18),
+            0 0 22px rgba(200,169,91,0.14),
             0 0 42px rgba(168,85,247,0.10);
           border-color: rgba(56,189,248,0.30);
         }
@@ -1487,7 +1487,7 @@ const styles = {
     height: 2,
     marginTop: 26,
     borderRadius: 999,
-    background: "linear-gradient(90deg, transparent, #38bdf8, #8b5cf6, transparent)",
+    background: "linear-gradient(90deg, transparent, #5cc8ff, #8b5cf6, transparent)",
     transformOrigin: "center",
     position: "relative",
     zIndex: 2,
@@ -1507,7 +1507,7 @@ const styles = {
   introText: {
     fontSize: "18vw",
     fontWeight: 900,
-    color: "#a855f7",
+    color: "#9b6bff",
     fontFamily: "'Finlandica', sans-serif",
     },
 
@@ -1527,7 +1527,7 @@ const styles = {
     width: "clamp(240px, 38vw, 460px)",
     height: "clamp(240px, 38vw, 460px)",
     borderRadius: "50%",
-    background: "rgba(168,85,247,0.16)",
+    background: "rgba(200,169,91,0.10)",
     filter: "blur(100px)",
     right: 30,
     bottom: 40,
@@ -1563,7 +1563,7 @@ const styles = {
     width: 50,
     height: 50,
     borderRadius: "50%",
-    background: "rgba(56,189,248,0.35)",
+    background: "rgba(200,169,91,0.22)",
     filter: "blur(18px)",
   },
 
@@ -1591,7 +1591,7 @@ const styles = {
 
   navLinkActive: {
     color: "#67e8f9",
-    textShadow: "0 0 18px rgba(56,189,248,0.35)",
+    textShadow: "0 0 18px rgba(200,169,91,0.22)",
   },
 
   langBtn: {
@@ -1622,7 +1622,7 @@ const styles = {
   },
 
   badge: {
-    color: "#38bdf8",
+    color: "#5cc8ff",
     fontWeight: 800,
     marginBottom: 20,
   },
@@ -1634,7 +1634,7 @@ const styles = {
     margin: 0,
     fontWeight: 900,
     letterSpacing: "-1px",
-    background: "linear-gradient(90deg,#38bdf8,#8b5cf6,#ffffff)",
+    background: "linear-gradient(90deg,#5cc8ff,#8b5cf6,#ffffff)",
     WebkitBackgroundClip: "text",
     color: "transparent",
   },
@@ -1665,7 +1665,7 @@ const styles = {
   primary: {
     padding: "12px 22px",
     borderRadius: 999,
-    background: "#38bdf8",
+    background: "#5cc8ff",
     color: "#020617",
     textDecoration: "none",
     fontWeight: 800,
@@ -1761,7 +1761,7 @@ const styles = {
   sectionTitle: {
     fontFamily: "'Sora', sans-serif",
     fontSize: 34,
-    color: "#a855f7",
+    color: "#9b6bff",
     marginBottom: 42,
     fontWeight: 900,
     textAlign: "center",
@@ -1784,7 +1784,7 @@ const styles = {
     padding: "clamp(20px, 3vw, 30px)",
     borderRadius: 30,
     background: "rgba(15,23,42,0.82)",
-    border: "1px solid rgba(56,189,248,0.14)",
+    border: "1px solid rgba(200,169,91,0.10)",
     backdropFilter: "blur(18px)",
   },
 
@@ -1821,7 +1821,7 @@ const styles = {
     padding: "clamp(20px, 3vw, 30px)",
     borderRadius: 30,
     background: "rgba(15,23,42,0.82)",
-    border: "1px solid rgba(56,189,248,0.14)",
+    border: "1px solid rgba(200,169,91,0.10)",
     backdropFilter: "blur(18px)",
   },
 
@@ -1889,7 +1889,7 @@ const styles = {
     width: 22,
     height: 22,
     borderRadius: "50%",
-    background: "#38bdf8",
+    background: "#5cc8ff",
     boxShadow: "0 0 30px rgba(59,130,246,0.9)",
     zIndex: 2,
   },
@@ -1901,7 +1901,7 @@ const styles = {
     width: 22,
     height: 22,
     borderRadius: "50%",
-    background: "#38bdf8",
+    background: "#5cc8ff",
     boxShadow: "0 0 30px rgba(59,130,246,0.9)",
     zIndex: 2,
   },
@@ -1910,7 +1910,7 @@ const styles = {
     padding: "clamp(22px, 3vw, 34px)",
     borderRadius: 32,
     background: "rgba(255,255,255,0.075)",
-    border: "1px solid rgba(56,189,248,0.14)",
+    border: "1px solid rgba(200,169,91,0.10)",
     backdropFilter: "blur(18px)",
   },
 
@@ -2011,7 +2011,7 @@ const styles = {
     fontSize: "clamp(18px, 2.4vw, 28px)",
     margin: "0 0 14px",
     textAlign: "center",
-    background: "linear-gradient(90deg,#38bdf8,#8b5cf6,#ffffff)",
+    background: "linear-gradient(90deg,#5cc8ff,#8b5cf6,#ffffff)",
     WebkitBackgroundClip: "text",
     color: "transparent",
   },
@@ -2056,7 +2056,7 @@ const styles = {
   contactActionPrimary: {
     padding: "13px 24px",
     borderRadius: 999,
-    background: "#38bdf8",
+    background: "#5cc8ff",
     color: "#020617",
     textDecoration: "none",
     fontWeight: 900,
@@ -2095,9 +2095,9 @@ const styles = {
     borderRadius: "50%",
     border: "1.5px solid transparent",
         background:
-      "linear-gradient(#020617,#020617) padding-box, linear-gradient(135deg, #38bdf8, #a855f7, #22d3ee) border-box",
+      "linear-gradient(#020617,#020617) padding-box, linear-gradient(135deg, #5cc8ff, #C8A95B, #9b6bff) border-box",
     boxShadow:
-      "0 0 35px rgba(56,189,248,0.35), 0 0 70px rgba(168,85,247,0.22)",
+      "0 0 35px rgba(200,169,91,0.22), 0 0 70px rgba(200,169,91,0.14)",
   },
   profileLogo: {
     width: "78%",
@@ -2210,7 +2210,7 @@ const styles = {
     padding: "16px",
     borderRadius: 20,
     background: "rgba(15,23,42,0.78)",
-    border: "1px solid rgba(56,189,248,0.14)",
+    border: "1px solid rgba(200,169,91,0.10)",
     backdropFilter: "blur(18px)",
     minHeight: 115,
     display: "flex",
@@ -2237,7 +2237,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "rgba(56,189,248,0.12)",
-    border: "1px solid rgba(56,189,248,0.18)",
+    border: "1px solid rgba(200,169,91,0.14)",
   },
   
   certificateTitle: {
@@ -2249,7 +2249,7 @@ const styles = {
   },
   
   certificateIssuer: {
-    color: "#38bdf8",
+    color: "#5cc8ff",
     fontWeight: 700,
     fontSize: 14,
   },
@@ -2265,7 +2265,7 @@ const styles = {
     padding: "10px 18px",
     borderRadius: 999,
     background: "rgba(56,189,248,0.12)",
-    border: "1px solid rgba(56,189,248,0.18)",
+    border: "1px solid rgba(200,169,91,0.14)",
     color: "#67e8f9",
     fontSize: 14,
     fontWeight: 800,
@@ -2293,8 +2293,8 @@ const styles = {
     borderRadius: 999,
     margin: "-28px auto 30px",
     background:
-      "linear-gradient(90deg, #38bdf8, #8b5cf6, #38bdf8)",
-    boxShadow: "0 0 18px rgba(56,189,248,0.35)",
+      "linear-gradient(90deg, #5cc8ff, #C8A95B, #9b6bff)",
+    boxShadow: "0 0 18px rgba(200,169,91,0.22)",
   },
   projectCategoryIcon: {
     width: "54px",
@@ -2304,7 +2304,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "rgba(20,20,40,0.72)",
-    border: "1px solid rgba(168,85,247,0.16)",
+    border: "1px solid rgba(200,169,91,0.10)",
     color: "#c084fc",
     marginTop: "8px",
   },
@@ -2332,7 +2332,7 @@ const styles = {
     borderRadius: 999,
     marginTop: 22,
     background:
-      "linear-gradient(90deg, #38bdf8, #8b5cf6, transparent)",
+      "linear-gradient(90deg, #5cc8ff, #8b5cf6, transparent)",
     boxShadow: "0 0 18px rgba(56,189,248,0.24)",
   },
   roleBadge: {
@@ -2342,7 +2342,7 @@ const styles = {
     padding: "12px 20px",
     borderRadius: 999,
     background: "rgba(15,23,42,0.72)",
-    border: "1px solid rgba(56,189,248,0.18)",
+    border: "1px solid rgba(200,169,91,0.14)",
     backdropFilter: "blur(14px)",
     color: "#67e8f9",
     fontWeight: 700,
@@ -2357,7 +2357,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "rgba(168,85,247,0.10)",
-    border: "1px solid rgba(168,85,247,0.22)",
+    border: "1px solid rgba(200,169,91,0.14)",
     color: "#c084fc",
     boxShadow: "0 0 14px rgba(168,85,247,0.10)",    marginInlineEnd: 12,
     
@@ -2388,7 +2388,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     background: "rgba(168,85,247,0.10)",
-    border: "1px solid rgba(168,85,247,0.22)",
+    border: "1px solid rgba(200,169,91,0.14)",
     color: "#c084fc",
     marginInlineEnd: 12,
     verticalAlign: "middle",
@@ -2402,7 +2402,7 @@ const styles = {
     justifyContent: "center",
     background: "rgba(56,189,248,0.10)",
     border: "1px solid rgba(56,189,248,0.22)",
-    color: "#38bdf8",
+    color: "#5cc8ff",
     flexShrink: 0,
   },
   contactMiniText: {
