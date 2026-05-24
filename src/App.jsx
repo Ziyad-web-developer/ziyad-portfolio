@@ -337,7 +337,7 @@ function App() {
   const certifications = [
     {
       title:
-        "Guided Learning Experience - Intelligent by Design: Build an AI Agent",
+        "Build an AI Agent",
       issuer: "IBM",
     },
   
@@ -360,6 +360,10 @@ function App() {
     {
       title: "CompTIA Security+ Course",
       issuer: "CYBERANI",
+    },
+    {
+      title: "The Foundations of Cybersecurity",
+      issuer: "Kennesaw State University",
     },
   ];
 
