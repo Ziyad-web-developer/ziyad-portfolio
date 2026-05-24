@@ -193,7 +193,7 @@ function App() {
       about: "About Me",
       skills: "Skills",
       experience: "Experience",
-      experienceTitle: "Digital Solutions Training",
+      experienceTitle:"Data Analysis Training",
       experienceText:
 "Completed summer training in data analysis, which involved data analysis, reporting, dashboard creation, and extracting insights to support decision-making.",
       certifications: "Certifications",
@@ -751,9 +751,15 @@ function App() {
   </span>
 </div>
 
-              <h3 className="project-title-mobile" style={styles.projectTitle}>
-                {t.experienceTitle}
-              </h3>
+<h3 className="project-title-mobile" style={styles.projectTitle}>
+  {
+    window.innerWidth <= 900
+      ? isAr
+        ? "تحليل البيانات"
+        : "Data Analysis"
+      : t.experienceTitle
+  }
+</h3>
 
               <p className="text-mobile" style={styles.text}>
                 {t.experienceText}
@@ -1283,7 +1289,7 @@ style={{
             overflow-x: hidden !important;
             background: #050816 !important;
           }
-        
+
           .navbar-mobile {
             top: 14px !important;
             left: 5% !important;
@@ -1399,7 +1405,10 @@ style={{
             width: 260px !important;
             height: 260px !important;
           }
-
+          .timelineBadge {
+            font-size: 9px !important;
+            padding: 3px 7px !important;
+          }
         }
       `}</style>
       <a
@@ -2310,12 +2319,12 @@ const styles = {
   },
   
   timelineBadge: {
-    padding: "8px 16px",
+    padding: window.innerWidth <= 768 ? "5px 10px" : "8px 16px",
     borderRadius: 999,
     background: "rgba(168,85,247,0.10)",
     border: "1px solid rgba(168,85,247,0.28)",
     color: "#d8b4fe",
-    fontSize: 13,
+    fontSize: window.innerWidth <= 768 ? 11 : 13,
     fontWeight: 800,
     whiteSpace: "nowrap",
   },
