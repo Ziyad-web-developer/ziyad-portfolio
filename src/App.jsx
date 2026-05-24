@@ -90,7 +90,7 @@ function App() {
   // Browser title + favicon
   // -----------------------------
   useEffect(() => {
-    document.title = "Ziyad Alfaifi | Cybersecurity & IT Portfolio";
+    document.title = "Ziyad Alfaifi | Systems Development & Security Portfolio";
 
     const setMeta = (selector, attrs) => {
       let tag = document.head.querySelector(selector);
@@ -112,13 +112,13 @@ function App() {
     setMeta('meta[name="description"]', {
       name: "description",
       content:
-        "Portfolio of Ziyad Alfaifi, an Information Technology graduate specializing in cybersecurity, web development, and data analysis.",
+        "Portfolio of Ziyad Alfaifi, an Information Technology graduate focused on systems development, security, and modern digital solutions.",
     });
 
     setMeta('meta[name="keywords"]', {
       name: "keywords",
       content:
-        "Ziyad Alfaifi, Cybersecurity, Information Technology, Web Development, Data Analysis, Portfolio",
+        "Ziyad Alfaifi, Systems Development, Security, Digital Solutions, Portfolio",
     });
 
     setMeta('meta[property="og:title"]', {
@@ -129,7 +129,7 @@ function App() {
     setMeta('meta[property="og:description"]', {
       property: "og:description",
       content:
-        "Cybersecurity, Data Analysis, and Modern Web Development Portfolio.",
+        "Systems Development & Security Portfolio.",
     });
 
     setMeta('meta[property="og:type"]', {
@@ -188,12 +188,12 @@ function App() {
     en: {
       name: "ZIYAD",
       title: "Hi, I'm Ziyad",
-      role: "Information Technology | Cybersecurity",
-      desc: "Recent Information Technology graduate specializing in Information Security, passionate about cybersecurity, secure systems, and building modern digital experiences with real-world impact.",
+      role: "Systems Development & Security",
+      desc: "IT graduate focused on systems development, security, and building modern digital solutions with practical impact.",
       about: "About Me",
       skills: "Skills",
       experience: "Experience",
-      experienceTitle: "Data Analysis Training",
+      experienceTitle: "Digital Solutions Training",
       experienceText:
 "Completed summer training in data analysis, which involved data analysis, reporting, dashboard creation, and extracting insights to support decision-making.",
       certifications: "Certifications",
@@ -238,8 +238,8 @@ function App() {
   // -----------------------------
   
   const rotatingRoles = isAr
-    ? ["الأمن السيبراني", "تطوير المواقع", "تحليل البيانات", "الذكاء الاصطناعي"]
-    : ["Cybersecurity", "Web Development", "Data Analysis", "Artificial Intelligence"];
+    ? ["الأمن السيبراني", "تطوير المواقع", "الحلول التقنية"]
+    : ["Systems Development", "Security", "Digital Solutions"];
 
   useEffect(() => {
     const roleInterval = setInterval(() => {
@@ -285,8 +285,8 @@ function App() {
       content: (
         <p className="text-mobile" style={styles.aboutText}>
           {isAr
-            ? "مهتم بالأمن السيبراني، تحليل البيانات، وبناء مواقع الويب الحديثة والتجارب الرقمية الاحترافية."
-            : "Interested in cybersecurity, data analysis, and building modern web experiences and professional digital solutions."}
+            ? "مهتم ببناء الأنظمة الحديثة والآمنة وتطوير الحلول الرقمية الموثوقة."
+            : "Interested in building modern secure systems and developing reliable digital solutions."}
         </p>
       ),
     },
@@ -311,19 +311,19 @@ function App() {
   // -----------------------------
   const skillGroups = [
     {
-      title: isAr ? "تطوير المواقع" : "Web Development",
+      title: isAr ? "تطوير المواقع" : "Systems Development",
       icon: <Code2 size={20} />,
-      items: ["React", "JavaScript", "HTML", "CSS", "Firebase", "Vite"],
+      items: ["React", "JavaScript", "HTML", "CSS", "Vite", "Responsive UI"],
     },
     {
-      title: isAr ? "تحليل البيانات" : "Data Analysis",
+      title: isAr ? "الحلول التقنية" : "Digital Solutions",
       icon: <BarChart3 size={20} />,
       items: ["Excel", "Power BI", "Python", "Statistics", "Visualization"],
     },
     {
       title: isAr ? "الأمن السيبراني" : "Cybersecurity",
       icon: <ShieldCheck size={20} />,
-      items: ["Linux", "Authentication", "OTP", "Security", "Networking"],
+      items: ["Security", "Authentication", "Secure Systems", "Networking", "Linux"],
     },
     {
       title: isAr ? "المهارات الشخصية" : "Soft Skills",
@@ -760,7 +760,7 @@ function App() {
               </p>
 
               <div style={styles.tags}>
-                <span style={styles.tag}>Data Analysis</span>
+                <span style={styles.tag}>Digital Solutions</span>
                 <span style={styles.tag}>Training</span>
                 <span style={styles.tag}>Insights</span>
               </div>
@@ -924,7 +924,7 @@ function App() {
     </div>
   </div>
 
-  {/* ================= Data Analysis ================= */}
+  {/* ================= Digital Solutions ================= */}
   <div style={styles.projectCategory}>
     <div style={styles.categoryHead}>
       <div style={styles.projectCategoryIcon}>
@@ -933,7 +933,7 @@ function App() {
 
       <div>
         <h3 style={styles.projectCategoryTitle}>
-          {isAr ? "تحليل البيانات" : "Data Analysis"}
+          {isAr ? "الحلول التقنية" : "Digital Solutions"}
         </h3>
 
         <p style={styles.projectCategoryDesc}>
@@ -946,7 +946,7 @@ function App() {
 
     <div className="project-grid-mobile" style={styles.projectsGrid}>
     <a
-href="https://app.powerbi.com/links/4VEO4u5DYi?ctid=c39ea9b1-7a5c-4435-9e03-8ff014e23352&pbi_source=linkShare"
+href="#"
 target="_blank"
 rel="noopener noreferrer"
 style={{
@@ -964,14 +964,7 @@ style={{
         transition={{ duration: 0.18 }}
       >
         <div style={styles.projectBody}>
-          <div
-  style={{
-    ...styles.projectLinkIcon,
-    [isAr ? "left" : "right"]: 24,
-  }}
->
-  <MoveUpRight size={22} strokeWidth={2.2} />
-</div>
+          
 
 <h3
   className="project-title-mobile"
@@ -1042,8 +1035,8 @@ style={{
 
     <p className="text-mobile" style={styles.contactText}>
       {isAr
-        ? "مهتم بالفرص في الأمن السيبراني، تحليل البيانات، والحلول الرقمية الحديثة."
-        : "Interested in cybersecurity, data analysis, and modern digital solutions opportunities."}
+        ? "مهتم بالفرص في الأمن السيبراني، الحلول التقنية، والحلول الرقمية الحديثة."
+        : "Interested in systems development, security, and modern digital solutions opportunities."}
     </p>
 
     <p style={styles.contactMiniText}>
@@ -1415,10 +1408,10 @@ style={{
   rel="noopener noreferrer"
   style={{
     position: "fixed",
-    bottom: 28,
-    left: 28,
-    width: 54,
-height: 54,
+    width: 48,
+height: 48,
+bottom: 20,
+left: 20,
     borderRadius: "50%",
     background: "#25D366",
     display: "flex",
@@ -1430,7 +1423,7 @@ height: 54,
     textDecoration: "none",
   }}
 >
-<FaWhatsapp size={26} color="#fff" />
+<FaWhatsapp size={24} color="#fff" />
 </a>
     </div>
   );
