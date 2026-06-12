@@ -365,6 +365,10 @@ function App() {
       title: "The Foundations of Cybersecurity",
       issuer: "Kennesaw State University",
     },
+    {
+      title: "Introduction to Cybersecurity Careers",
+      issuer: "IBM",
+    },
   ];
 
   // -----------------------------
