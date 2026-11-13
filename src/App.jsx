@@ -1178,7 +1178,7 @@ function App() {
     <div style={styles.contactActions}>
 
       <a
-  href="https://www.linkedin.com/in/ziyad-hadi-alfaifi-391584337?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+  href="https://www.linkedin.com/in/ziyad7h"
   target="_blank"
   rel="noopener noreferrer"
   style={styles.contactAction}
@@ -1223,7 +1223,7 @@ function App() {
   </a>
 
   <a
-    href="https://www.linkedin.com/in/ziyad-hadi-alfaifi-391584337"
+    href="https://www.linkedin.com/in/ziyad7h"
     target="_blank"
     rel="noopener noreferrer"
     style={styles.contactInfoCard}
@@ -1233,7 +1233,7 @@ function App() {
       LinkedIn
     </span>
 
-    <strong>ziyad-hadi-alfaifi</strong>
+    <strong>ziyad7h</strong>
   </a>
 
   <a
