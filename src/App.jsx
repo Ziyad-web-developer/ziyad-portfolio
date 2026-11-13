@@ -460,7 +460,7 @@ function App() {
       description: isAr
         ? "نظام ويب داخلي لإدارة عمليات الفرع: الباصات والسائقين ومستنداتهم والغياب، وحساب أجرة السائقين الشهرية تلقائيًا."
         : "An internal web system for branch operations: buses, drivers and their documents, absences, and automatic monthly driver pay.",
-      tags: ["JavaScript", "Supabase", "Vercel", "Excel"],
+      tags: ["HTML", "CSS", "JavaScript", "Supabase", "Vercel", "Excel"],
       images: [
         "/projects/fleet-buses.webp",
         "/projects/fleet-drivers.webp",
