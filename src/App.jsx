@@ -336,6 +336,10 @@ function App() {
   // -----------------------------
   const certifications = [
     {
+      title: "Professional Accreditation – Specialist",
+      issuer: "Saudi Council of Engineers (SCE)",
+    },
+    {
       title:
         "Build an AI Agent",
       issuer: "IBM",
@@ -372,13 +376,172 @@ function App() {
   ];
 
   // -----------------------------
+  // Experience data (newest first)
+  // -----------------------------
+  const experiences = [
+    {
+      role: isAr ? "مهندس تقنية معلومات" : "IT Engineer",
+      company: isAr ? "شركة المنجوف" : "Al-Manjouf Company",
+      place: isAr ? "عن بُعد" : "Remote",
+      date: isAr ? "أغسطس 2026 – الآن" : "Aug 2026 – Present",
+      current: true,
+      points: isAr
+        ? [
+            "إدارة أنظمة الشركة ومواقعها الإلكترونية وتحديثها.",
+            "تنفيذ التحديثات والإصلاحات والتحسينات على الأنظمة القائمة.",
+          ]
+        : [
+            "Manage, maintain, and update the company's web systems and websites.",
+            "Deliver updates, fixes, and improvements to existing systems.",
+          ],
+      tags: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Supabase", "Vercel", "Git/GitHub"],
+    },
+    {
+      role: isAr ? "أخصائي رقابة عمليات" : "Operations Control Specialist",
+      company: isAr ? "شركة السفير" : "Al Safeer Company",
+      place: isAr ? "جازان" : "Jazan",
+      date: isAr ? "أغسطس 2026 – الآن" : "Aug 2026 – Present",
+      current: true,
+      points: isAr
+        ? [
+            "مراقبة عمليات الأنظمة وسير العمل الإلكتروني في إدارة التشغيل.",
+            "بناء نظام إدارة الأسطول للفرع (الباصات والسائقين والأجرة) ويستخدمه فريق التشغيل يوميًا.",
+          ]
+        : [
+            "Monitor system operations and electronic workflows in the operations department.",
+            "Built the branch's Fleet Operations System (buses, drivers, pay), now used daily by the operations team.",
+          ],
+      tags: isAr ? ["رقابة العمليات", "سير العمل", "تطوير الأنظمة"] : ["Operations", "Workflows", "Systems Development"],
+    },
+    {
+      role: isAr ? "متدرب تحليل بيانات" : "Data Analysis Trainee",
+      company: isAr ? "تدريب صيفي" : "Summer Training",
+      place: "",
+      date: isAr ? "يونيو – أغسطس 2025" : "Jun – Aug 2025",
+      current: false,
+      points: [t.experienceText],
+      tags: ["Excel", "Power BI"],
+    },
+  ];
+
+  // -----------------------------
+  // Project case-study modal
+  // -----------------------------
+  const [activeProject, setActiveProject] = useState(null);
+  const [activeImage, setActiveImage] = useState(0);
+
+  const openProject = (index) => {
+    setActiveProject(index);
+    setActiveImage(0);
+  };
+
+  useEffect(() => {
+    if (activeProject === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setActiveProject(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [activeProject]);
+
+  // -----------------------------
   // Projects data
   // -----------------------------
   const projects = [
     {
+      title: isAr ? "نظام إدارة الأسطول" : "Fleet Operations System",
+      shortTitle: isAr ? "إدارة الأسطول" : "Fleet Operations",
+      status: isAr ? "مستخدم حاليًا في الفرع" : "In daily use",
+      statusLive: true,
+      description: isAr
+        ? "نظام ويب داخلي لإدارة عمليات الفرع: الباصات والسائقين ومستنداتهم والغياب، وحساب أجرة السائقين الشهرية تلقائيًا."
+        : "An internal web system for branch operations: buses, drivers and their documents, absences, and automatic monthly driver pay.",
+      tags: ["JavaScript", "Supabase", "Vercel", "Excel"],
+      images: [
+        "/projects/fleet-buses.webp",
+        "/projects/fleet-drivers.webp",
+        "/projects/fleet-pay.webp",
+      ],
+      caseStudy: {
+        problem: isAr
+          ? "بيانات الباصات والسائقين ومستنداتهم وحساب الأجرة الشهرية كانت موزعة بين ملفات Excel، وتأخذ وقتًا وتتعرض للأخطاء."
+          : "Bus, driver, and document data, plus monthly pay calculations, were scattered across Excel files, slow to manage and error-prone.",
+        solution: isAr
+          ? "بنيت نظامًا واحدًا لفريق التشغيل يجمع كل البيانات في مكان واحد، ويحسب الأجرة تلقائيًا حسب عدد الطلاب وأيام الدوام."
+          : "I built a single system for the operations team that keeps everything in one place and calculates pay automatically from student counts and working days.",
+        features: isAr
+          ? [
+              "إدارة الباصات وحالاتها (شغّال، احتياط، صيانة)",
+              "ملفات السائقين ومتابعة اكتمال المستندات",
+              "تسجيل الغياب وفترات تعليق الدراسة",
+              "حساب الأجرة الشهرية تلقائيًا",
+              "استيراد وتصدير Excel وتقارير",
+            ]
+          : [
+              "Bus fleet management with status (active, reserve, maintenance)",
+              "Driver records with document-completion tracking",
+              "Absence and school-suspension tracking",
+              "Automatic monthly pay calculation",
+              "Excel import/export and reports",
+            ],
+        result: isAr
+          ? "يستخدمه فريق التشغيل في الفرع بشكل يومي."
+          : "Used daily by the branch operations team.",
+      },
+    },
+    {
+      title: isAr ? "صيانتي – نظام صيانة الأسطول" : "Siyanaty – Fleet Maintenance System",
+      shortTitle: isAr ? "صيانتي" : "Siyanaty",
+      status: isAr ? "مكتمل وجاهز للتشغيل" : "Complete · Ready to launch",
+      statusLive: false,
+      description: isAr
+        ? "نظام لمتابعة صيانة الحافلات: العامل يمسح رمز QR للحافلة ويسجل الصيانة بالصور، والمشرف يتابع كل شيء من لوحة تحكم وتقارير."
+        : "A bus maintenance tracking system: workers scan a bus QR code and log jobs with photos, while supervisors follow everything from a dashboard and reports.",
+      tags: ["Next.js", "Supabase", "Tailwind CSS", "Vercel"],
+      images: [
+        "/projects/siyanaty-home.webp",
+        "/projects/siyanaty-bus.webp",
+        "/projects/siyanaty-buses.webp",
+        "/projects/siyanaty-reports.webp",
+      ],
+      caseStudy: {
+        problem: isAr
+          ? "لم يكن هناك سجل واضح لصيانة الحافلات: ما الذي تم إصلاحه، ومتى، وما الذي ما زال معلقًا، ومتى تحين الصيانة الدورية."
+          : "There was no clear record of bus maintenance: what was fixed, when, what was still pending, and when periodic service was due.",
+        solution: isAr
+          ? "لكل حافلة رمز QR؛ العامل يمسحه من جواله ويسجل العمل بالصور، والنظام يحفظ السجل الكامل لكل حافلة ويتابع الصيانة الدورية."
+          : "Every bus gets a QR code. Workers scan it from their phone and log the job with photos, and the system keeps a full history per bus and tracks periodic service.",
+        features: isAr
+          ? [
+              "رمز QR لكل حافلة وطباعة الملصقات",
+              "تسجيل الأعطال بالصور والعمليات المعلقة وأسبابها",
+              "الصيانة الدورية وحملات الفحص الشامل",
+              "تقارير مع تصدير Excel وطباعة",
+              "صلاحيات متعددة وفروع متعددة",
+              "حماية: RLS، قفل الحساب بعد المحاولات الفاشلة، سجل تدقيق",
+            ]
+          : [
+              "QR code per bus with sticker printing",
+              "Fault logging with photos, pending jobs, and reasons",
+              "Periodic service and fleet-wide inspection campaigns",
+              "Reports with Excel export and print",
+              "Role-based access across multiple branches",
+              "Security: RLS, login lockout, and audit log",
+            ],
+        result: isAr
+          ? "النظام مكتمل (الإصدار 1.4) وجاهز للتشغيل الميداني."
+          : "Complete (v1.4) and ready for field deployment.",
+      },
+    },
+    {
       title: isAr
         ? "منصة خدمات المدينة الذكية"
         : "Smart City Services Platform",
+      shortTitle: isAr ? "منصة المدينة الذكية" : "Smart City Platform",
         description: isAr
         ? "منصة إشرافية للمدينة الذكية مخصصة للمشرفين والإداريين، تضم لوحات تحكم تفاعلية وإدارة البلاغات والتنبيهات والخرائط الرقمية، بينما يمتلك المواطنون تطبيقًا منفصلًا للخدمات."
         : "A smart city management platform designed for supervisors and administrators, featuring interactive dashboards, reports management, alerts, and digital maps, while citizens use a separate dedicated services application.",
@@ -389,6 +552,7 @@ function App() {
     },
     {
       title: isAr ? "منصة المكتبة الرقمية" : "Digital Library Platform",
+      shortTitle: isAr ? "المكتبة الرقمية" : "Digital Library",
       description: isAr
   ? "منصة مكتبة رقمية بواجهة حديثة، تتيح استعراض الكتب والتنقل بينها بسلاسة ضمن تجربة استخدام بسيطة ومتجاوبة."
   : "A modern digital library platform that allows users to browse books smoothly through a simple, responsive, and user-friendly experience.",
@@ -588,16 +752,6 @@ function App() {
 <motion.a
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.96 }}
-  href="/cv.pdf"
-  download="Ziyad-Alfaifi-CV.pdf"
-  style={styles.secondary}
->
-  {isAr ? "تحميل السيرة الذاتية" : "Download CV"}
-</motion.a>
-
-<motion.a
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.96 }}
   href="#contact"
   style={styles.secondary}
 >
@@ -733,7 +887,14 @@ function App() {
         <div className="timeline-mobile" style={styles.timeline}>
           <div style={isAr ? styles.timelineLineAr : styles.timelineLine}></div>
 
-          <div style={isAr ? styles.timelineItemAr : styles.timelineItem}>
+          {experiences.map((exp, i) => (
+          <div
+            key={exp.role}
+            style={{
+              ...(isAr ? styles.timelineItemAr : styles.timelineItem),
+              marginBottom: i === experiences.length - 1 ? 0 : 26,
+            }}
+          >
             <div style={isAr ? styles.timelineDotAr : styles.timelineDot}></div>
 
             <motion.div
@@ -749,37 +910,42 @@ function App() {
                 borderColor: "rgba(200,169,91,0.22)",
               }}
             >
-             <div style={styles.timelineHeader}>
-  <span style={styles.timelineDate}>
-    {isAr ? "صيف 2025" : "Summer 2025"}
-  </span>
+              <div style={styles.timelineHeader}>
+                <span style={{ ...styles.timelineDate, marginBottom: 0 }}>
+                  {exp.company}
+                  {exp.place ? ` · ${exp.place}` : ""}
+                </span>
 
-  <span style={styles.timelineBadge}>
-    06/2025 - 08/2025
-  </span>
-</div>
+                <span style={styles.timelineBadge}>{exp.date}</span>
+              </div>
 
-<h3 className="project-title-mobile" style={styles.projectTitle}>
-  {
-    window.innerWidth <= 900
-      ? isAr
-        ? "تحليل البيانات"
-        : "Data Analysis"
-      : t.experienceTitle
-  }
-</h3>
+              <h3 className="exp-title-mobile" style={styles.projectTitle}>
+                {exp.role}
+                {exp.current && (
+                  <span style={styles.currentBadge}>
+                    {isAr ? "حاليًا" : "Current"}
+                  </span>
+                )}
+              </h3>
 
-              <p className="text-mobile" style={styles.text}>
-                {t.experienceText}
-              </p>
+              <ul style={styles.expList}>
+                {exp.points.map((point) => (
+                  <li key={point} className="text-mobile" style={styles.expPoint}>
+                    {point}
+                  </li>
+                ))}
+              </ul>
 
-              <div style={styles.tags}>
-                <span style={styles.tag}>Digital Solutions</span>
-                <span style={styles.tag}>Training</span>
-                <span style={styles.tag}>Insights</span>
+              <div style={{ ...styles.tags, marginTop: 20 }}>
+                {exp.tags.map((tag) => (
+                  <span key={tag} style={styles.tag}>
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </div>
+          ))}
         </div>
       </motion.section>
 
@@ -860,25 +1026,46 @@ function App() {
 
         <p style={styles.projectCategoryDesc}>
   {isAr
-    ? "أفكار إبداعية وتجارب رقمية حديثة."
-    : "Creative ideas and modern digital experiences."}
+    ? "أنظمة وتطبيقات ويب مبنية لحل مشاكل حقيقية."
+    : "Real systems and web applications built to solve practical problems."}
 </p>
 
       </div>
     </div>
 
     <div className="project-grid-mobile" style={styles.projectsGrid}>
-      {projects.map((project) => (
-        <motion.a
+      {projects.map((project, index) => {
+        const isCaseStudy = Boolean(project.caseStudy);
+        const cardProps = isCaseStudy
+          ? {
+              role: "button",
+              tabIndex: 0,
+              onClick: () => openProject(index),
+              onKeyDown: (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  openProject(index);
+                }
+              },
+            }
+          : {
+              href: project.link,
+              target: "_blank",
+              rel: "noopener noreferrer",
+            };
+        const Card = isCaseStudy ? motion.div : motion.a;
+
+        return (
+        <Card
           key={project.title}
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...cardProps}
           className="project-card-mobile premium-card"
           style={{
             ...styles.projectModernCard,
             textDecoration: "none",
             color: "inherit",
+            cursor: "pointer",
+            padding: 0,
           }}
           whileHover={{
             y: -6,
@@ -887,39 +1074,50 @@ function App() {
           }}
           transition={{ duration: 0.18 }}
         >
+          {isCaseStudy && (
+            <div style={styles.projectCover}>
+              <img
+                src={project.images[0]}
+                alt={project.title}
+                loading="lazy"
+                style={styles.projectCoverImg}
+              />
+              <span
+                style={{
+                  ...styles.projectStatus,
+                  ...(project.statusLive ? styles.projectStatusLive : {}),
+                  [isAr ? "right" : "left"]: 16,
+                }}
+              >
+                <span
+                  style={{
+                    ...styles.statusDot,
+                    background: project.statusLive ? "#4ade80" : "#C8A95B",
+                  }}
+                />
+                {project.status}
+              </span>
+            </div>
+          )}
+
           <div style={styles.projectBody}>
-            <div
-  style={{
-    ...styles.projectLinkIcon,
-    [isAr ? "left" : "right"]: 24,
-  }}
->
-  <MoveUpRight size={22} strokeWidth={2.2} />
-</div>
+            {!isCaseStudy && (
+              <div
+                style={{
+                  ...styles.projectLinkIcon,
+                  [isAr ? "left" : "right"]: 24,
+                }}
+              >
+                <MoveUpRight size={22} strokeWidth={2.2} />
+              </div>
+            )}
 
-<h3
-  className="project-title-mobile"
-  style={styles.projectTitle}
->
-  <span style={styles.projectCodeIcon}>
-    <Code2 size={20} strokeWidth={2.2} />
-  </span>
-
-  {window.innerWidth <= 900
-  ? project.title === "Smart City Services Platform" ||
-    project.title === "منصة خدمات المدينة الذكية"
-    ? isAr
-      ? "منصة المدينة الذكية"
-      : "Smart City Platform"
-      : project.title === "Digital Library Platform" ||
-      project.title === "منصة المكتبة الرقمية"
-    ? isAr
-      ? "المكتبة الرقمية"
-      : "Digital Library"
-    
-    : project.title
-  : project.title}
-</h3>
+            <h3 className="project-title-mobile" style={styles.projectTitle}>
+              <span style={styles.projectCodeIcon}>
+                <Code2 size={20} strokeWidth={2.2} />
+              </span>
+              {window.innerWidth <= 900 ? project.shortTitle : project.title}
+            </h3>
 
             <p className="text-mobile" style={styles.text}>
               {project.description}
@@ -932,90 +1130,17 @@ function App() {
                 </span>
               ))}
             </div>
+
+            {isCaseStudy && (
+              <span style={styles.caseStudyLink}>
+                {isAr ? "عرض تفاصيل المشروع" : "View case study"}
+                <ArrowUpRight size={16} strokeWidth={2.4} />
+              </span>
+            )}
           </div>
-        </motion.a>
-      ))}
-    </div>
-  </div>
-
-  {/* ================= Digital Solutions ================= */}
-  <div style={styles.projectCategory}>
-    <div style={styles.categoryHead}>
-      <div style={styles.projectCategoryIcon}>
-        <BarChart3 size={18} />
-      </div>
-
-      <div>
-        <h3 style={styles.projectCategoryTitle}>
-          {isAr ? "الحلول التقنية" : "Digital Solutions"}
-        </h3>
-
-        <p style={styles.projectCategoryDesc}>
-  {isAr
-    ? "تحليلات مرئية ولوحات بيانات تفاعلية."
-    : "Visual analytics and interactive dashboards."}
-</p>
-      </div>
-    </div>
-
-    <div className="project-grid-mobile" style={styles.projectsGrid}>
-    <a
-href="#"
-target="_blank"
-rel="noopener noreferrer"
-style={{
-  textDecoration: "none",
-  color: "inherit",
-}}>
-      <motion.div
-        className="project-card-mobile premium-card"
-        style={styles.projectModernCard}
-        whileHover={{
-          y: -6,
-          borderColor: "rgba(200,169,91,0.22)",
-          boxShadow: "0 0 35px rgba(56,189,248,0.16)",
-        }}
-        transition={{ duration: 0.18 }}
-      >
-        <div style={styles.projectBody}>
-          
-
-<h3
-  className="project-title-mobile"
-  style={styles.projectTitle}
->
-  <span style={styles.projectChartIcon}>
-    <BarChart3 size={15} strokeWidth={2} />
-  </span>
-
-  {
-  window.innerWidth <= 900
-    ? isAr
-      ? "لوحة جدارات"
-      : "Jadarat Dashboard"
-    : isAr
-    ? "لوحة تحليلات جدارات"
-    : "Jadarat Analytics Dashboard"
-}
-</h3>
-
-<p className="text-mobile" style={styles.text}>
-  {isAr
-    ? "لوحة بيانات تفاعلية باستخدام Power BI لعرض وتحليل البيانات والمؤشرات بطريقة بصرية حديثة وسهلة الفهم."
-    : "An interactive Power BI dashboard designed to visualize and analyze data and insights through a modern and user-friendly experience."}
-</p>
-
-
-          <div style={styles.tags}>
-            <span style={styles.tag}>Power BI</span>
-            <span style={styles.tag}>Analytics</span>
-            <span style={styles.tag}>Dashboard</span>
-            <span style={styles.tag}>Visualization</span>
-          </div>
-        </div>
-       
- </motion.div>
- </a>
+        </Card>
+        );
+      })}
     </div>
   </div>
 </motion.section>
@@ -1055,8 +1180,8 @@ style={{
 
     <p style={styles.contactMiniText}>
   {isAr
-    ? "متاح للتدريب، الفرص المهنية، والتعاونات التقنية."
-    : "Available for internships, entry-level opportunities, and technical collaborations."}
+    ? "منفتح على الفرص الجديدة والتعاونات التقنية."
+    : "Open to new opportunities and technical collaborations."}
 </p>
 
     <div style={styles.contactActions}>
@@ -1082,19 +1207,9 @@ style={{
     href="/cv.pdf"
     target="_blank"
     rel="noopener noreferrer"
-    style={styles.contactAction}
-    className="contact-hover">
-    
-    {isAr ? "عرض السيرة الذاتية" : "View CV"}
-  </a>
-
-  <a
-    href="/cv.pdf"
-    download="Ziyad-Alfaifi-CV.pdf"
     style={styles.contactActionPrimary}
-    className="contact-hover"
-        >
-    {isAr ? "تحميل السيرة الذاتية" : "Download CV"}
+    className="contact-hover">
+    {isAr ? "عرض السيرة الذاتية" : "View CV"}
   </a>
     </div>
 
@@ -1145,6 +1260,133 @@ style={{
 </div>
   </motion.div>
 </motion.section>
+{/* ============================= Case Study Modal ============================== */}
+<AnimatePresence>
+  {activeProject !== null && projects[activeProject]?.caseStudy && (() => {
+    const p = projects[activeProject];
+    const cs = p.caseStudy;
+    return (
+      <motion.div
+        key="case-overlay"
+        style={styles.modalOverlay}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setActiveProject(null)}
+      >
+        <motion.div
+          className="case-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={p.title}
+          style={styles.modalPanel}
+          initial={{ y: 40, opacity: 0, scale: 0.98 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 30, opacity: 0 }}
+          transition={{ duration: 0.28, ease: "easeOut" }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div style={styles.modalHeader}>
+            <div>
+              <span
+                style={{
+                  ...styles.modalStatus,
+                  color: p.statusLive ? "#4ade80" : "#C8A95B",
+                }}
+              >
+                <span
+                  style={{
+                    ...styles.statusDot,
+                    background: p.statusLive ? "#4ade80" : "#C8A95B",
+                  }}
+                />
+                {p.status}
+              </span>
+              <h3 className="case-modal-title" style={styles.modalTitle}>{p.title}</h3>
+            </div>
+            <button
+              type="button"
+              aria-label={isAr ? "إغلاق" : "Close"}
+              style={styles.modalClose}
+              onClick={() => setActiveProject(null)}
+            >
+              ✕
+            </button>
+          </div>
+
+          <div style={styles.modalMainImageBox}>
+            <img
+              src={p.images[activeImage]}
+              alt={`${p.title} ${activeImage + 1}`}
+              style={styles.modalMainImage}
+            />
+          </div>
+
+          <div style={styles.modalThumbs}>
+            {p.images.map((img, i) => (
+              <button
+                key={img}
+                type="button"
+                onClick={() => setActiveImage(i)}
+                style={{
+                  ...styles.modalThumb,
+                  ...(i === activeImage ? styles.modalThumbActive : {}),
+                }}
+              >
+                <img src={img} alt="" style={styles.modalThumbImg} />
+              </button>
+            ))}
+          </div>
+
+          <p style={styles.modalNote}>
+            {isAr
+              ? "نظام داخلي · البيانات المعروضة في الصور تجريبية"
+              : "Internal system · Screenshots show sample data"}
+          </p>
+
+          <div className="case-grid" style={styles.caseGrid}>
+            <div style={styles.caseBlock}>
+              <h4 style={styles.caseHeading}>{isAr ? "المشكلة" : "The Problem"}</h4>
+              <p style={styles.caseText}>{cs.problem}</p>
+            </div>
+            <div style={styles.caseBlock}>
+              <h4 style={styles.caseHeading}>{isAr ? "الحل" : "The Solution"}</h4>
+              <p style={styles.caseText}>{cs.solution}</p>
+            </div>
+          </div>
+
+          <div style={styles.caseBlock}>
+            <h4 style={styles.caseHeading}>{isAr ? "أهم المميزات" : "Key Features"}</h4>
+            <ul style={styles.caseList}>
+              {cs.features.map((f) => (
+                <li key={f} style={styles.caseListItem}>
+                  <span style={styles.caseBullet} />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="case-grid" style={styles.caseGrid}>
+            <div style={styles.caseBlock}>
+              <h4 style={styles.caseHeading}>{isAr ? "التقنيات" : "Tech Stack"}</h4>
+              <div style={{ ...styles.tags, marginTop: 4 }}>
+                {p.tags.map((tag) => (
+                  <span key={tag} style={styles.tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div style={styles.caseBlock}>
+              <h4 style={styles.caseHeading}>{isAr ? "النتيجة" : "Outcome"}</h4>
+              <p style={styles.caseText}>{cs.result}</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  })()}
+</AnimatePresence>
+
 {/* ============================= Footer ============================== */}
 <footer style={styles.footer}>
   <p style={styles.footerText}>
@@ -1416,6 +1658,31 @@ style={{
           .timelineBadge {
             font-size: 9px !important;
             padding: 3px 7px !important;
+          }
+        }
+
+        /* Keep section titles visible below the fixed navbar */
+        section[id] {
+          scroll-margin-top: 110px;
+        }
+
+        @media (max-width: 768px) {
+          section[id] {
+            scroll-margin-top: 90px;
+          }
+
+          .exp-title-mobile {
+            font-size: 20px !important;
+            line-height: 1.35 !important;
+          }
+
+          .case-grid {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
+          }
+
+          .case-modal {
+            border-radius: 22px !important;
           }
         }
       `}</style>
@@ -2424,8 +2691,228 @@ const styles = {
     marginTop: 18,
     opacity: 0.9,
   },
-  
-  
+  // ---------- Experience ----------
+  currentBadge: {
+    fontSize: 12,
+    fontWeight: 800,
+    padding: "4px 10px",
+    borderRadius: 999,
+    background: "rgba(74,222,128,0.12)",
+    border: "1px solid rgba(74,222,128,0.30)",
+    color: "#4ade80",
+  },
+  expList: {
+    margin: "14px 0 0",
+    paddingInlineStart: 20,
+    display: "flex",
+    flexDirection: "column",
+    gap: 8,
+  },
+  expPoint: {
+    color: "#cbd5e1",
+    lineHeight: 1.8,
+    fontSize: 16,
+  },
+
+  // ---------- Project cards ----------
+  projectCover: {
+    position: "relative",
+    height: 230,
+    overflow: "hidden",
+    background: "#0b1224",
+    borderBottom: "1px solid rgba(56,189,248,0.12)",
+  },
+  projectCoverImg: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "top center",
+    display: "block",
+  },
+  projectStatus: {
+    position: "absolute",
+    top: 14,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "6px 12px",
+    borderRadius: 999,
+    background: "rgba(5,8,22,0.82)",
+    border: "1px solid rgba(200,169,91,0.35)",
+    color: "#e9d8a6",
+    fontSize: 12.5,
+    fontWeight: 800,
+    backdropFilter: "blur(8px)",
+  },
+  projectStatusLive: {
+    border: "1px solid rgba(74,222,128,0.40)",
+    color: "#bbf7d0",
+  },
+  statusDot: {
+    width: 8,
+    height: 8,
+    borderRadius: "50%",
+    display: "inline-block",
+    flexShrink: 0,
+  },
+  caseStudyLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    marginTop: 22,
+    color: "#C8A95B",
+    fontWeight: 800,
+    fontSize: 15,
+  },
+
+  // ---------- Case study modal ----------
+  modalOverlay: {
+    position: "fixed",
+    inset: 0,
+    zIndex: 2000,
+    background: "rgba(2,6,23,0.80)",
+    backdropFilter: "blur(10px)",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    padding: "4vh 16px",
+    overflowY: "auto",
+  },
+  modalPanel: {
+    width: "100%",
+    maxWidth: 1000,
+    borderRadius: 28,
+    background: "#0a1024",
+    border: "1px solid rgba(56,189,248,0.18)",
+    boxShadow: "0 30px 80px rgba(0,0,0,0.55), 0 0 40px rgba(56,189,248,0.10)",
+    padding: "clamp(18px, 3vw, 32px)",
+    color: "white",
+  },
+  modalHeader: {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: 16,
+    marginBottom: 20,
+  },
+  modalStatus: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    fontSize: 13,
+    fontWeight: 800,
+  },
+  modalTitle: {
+    margin: "8px 0 0",
+    fontSize: "clamp(22px, 3vw, 30px)",
+    fontWeight: 800,
+    lineHeight: 1.25,
+  },
+  modalClose: {
+    width: 42,
+    height: 42,
+    flexShrink: 0,
+    borderRadius: "50%",
+    border: "1px solid rgba(255,255,255,0.14)",
+    background: "rgba(255,255,255,0.06)",
+    color: "white",
+    fontSize: 16,
+    cursor: "pointer",
+  },
+  modalMainImageBox: {
+    borderRadius: 18,
+    overflow: "hidden",
+    border: "1px solid rgba(56,189,248,0.16)",
+    background: "#f5f7fb",
+  },
+  modalMainImage: {
+    width: "100%",
+    display: "block",
+  },
+  modalThumbs: {
+    display: "flex",
+    gap: 10,
+    marginTop: 12,
+    overflowX: "auto",
+    paddingBottom: 4,
+  },
+  modalThumb: {
+    flex: "0 0 auto",
+    width: 120,
+    height: 70,
+    padding: 0,
+    borderRadius: 10,
+    overflow: "hidden",
+    border: "2px solid rgba(255,255,255,0.10)",
+    background: "#0b1224",
+    cursor: "pointer",
+    opacity: 0.6,
+  },
+  modalThumbActive: {
+    border: "2px solid #5cc8ff",
+    opacity: 1,
+  },
+  modalThumbImg: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "top center",
+    display: "block",
+  },
+  modalNote: {
+    margin: "10px 0 6px",
+    fontSize: 12.5,
+    color: "#94a3b8",
+  },
+  caseGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 16,
+  },
+  caseBlock: {
+    marginTop: 16,
+    padding: "18px 20px",
+    borderRadius: 18,
+    background: "rgba(255,255,255,0.04)",
+    border: "1px solid rgba(255,255,255,0.08)",
+  },
+  caseHeading: {
+    margin: "0 0 10px",
+    color: "#5cc8ff",
+    fontSize: 15,
+    fontWeight: 800,
+    letterSpacing: "0.3px",
+  },
+  caseText: {
+    margin: 0,
+    color: "#cbd5e1",
+    lineHeight: 1.85,
+    fontSize: 15.5,
+  },
+  caseList: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+    gap: "10px 22px",
+  },
+  caseListItem: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: 10,
+    color: "#e2e8f0",
+    lineHeight: 1.7,
+    fontSize: 15,
+  },
+  caseBullet: {
+    width: 7,
+    height: 7,
+    marginTop: 10,
+    borderRadius: "50%",
+    background: "#C8A95B",
+    flexShrink: 0,
+  },
 };
 
 export default App;
