@@ -1074,19 +1074,12 @@ function App() {
           }}
           transition={{ duration: 0.18 }}
         >
-          {isCaseStudy && (
-            <div style={styles.projectCover}>
-              <img
-                src={project.images[0]}
-                alt={project.title}
-                loading="lazy"
-                style={styles.projectCoverImg}
-              />
+          <div style={styles.projectBody}>
+            {isCaseStudy && (
               <span
                 style={{
                   ...styles.projectStatus,
                   ...(project.statusLive ? styles.projectStatusLive : {}),
-                  [isAr ? "right" : "left"]: 16,
                 }}
               >
                 <span
@@ -1097,10 +1090,8 @@ function App() {
                 />
                 {project.status}
               </span>
-            </div>
-          )}
+            )}
 
-          <div style={styles.projectBody}>
             {!isCaseStudy && (
               <div
                 style={{
@@ -2730,9 +2721,8 @@ const styles = {
     display: "block",
   },
   projectStatus: {
-    position: "absolute",
-    top: 14,
     display: "inline-flex",
+    marginBottom: 16,
     alignItems: "center",
     gap: 8,
     padding: "6px 12px",
