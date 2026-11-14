@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaLinkedinIn } from "react-icons/fa";
 import {
   GraduationCap,
   Shield,
@@ -9,15 +8,14 @@ import {
   Mail,
   Phone,
   Award,
-LayoutDashboard,
-BarChart3,
-Code2,
-ShieldCheck,
-  ArrowUpRight
+  LayoutDashboard,
+  BarChart3,
+  Code2,
+  ShieldCheck,
+  ArrowUpRight,
+  MoveUpRight,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
-import { p } from "framer-motion/client";
-import { MoveUpRight } from "lucide-react";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 
 // =========================================================
@@ -561,21 +559,24 @@ function App() {
       tags: ["React", "JavaScript", "UI/UX", "Responsive"],
     },
   ];
+  // Background stars: random positions generated once, so they don't jump on every re-render
+  const stars = useMemo(
+    () =>
+      Array.from({ length: 18 }, () => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 5}s`,
+        animationDuration: `${1.8 + Math.random() * 1.5}s`,
+      })),
+    []
+  );
+
   return (
     <div className="desktop-fix" dir={isAr ? "rtl" : "ltr"} style={styles.page}>
       {/* ============================= Background Stars ============================== */}
       <div style={styles.starsLayer}>
-  {Array.from({ length: 18 }).map((_, i) => (
-    <span
-      key={i}
-      style={{
-        ...styles.star,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 5}s`,
-        animationDuration: `${1.8 + Math.random() * 1.5}s`,      
-      }}
-    />
+  {stars.map((star, i) => (
+    <span key={i} style={{ ...styles.star, ...star }} />
   ))}
 </div>
       {/* ============================= Background Grid ============================== */}
